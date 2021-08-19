@@ -16,3 +16,23 @@ module.exports.createNewExpenses = (req, res, next) => {
     });
   } else res.status(422).send('Error! Params not correct');
 };
+
+module.exports.changeExpensesInfo = (req, res, next) => {
+  if (req.body._id) {
+    Expenses.updateOne({_id: req.body._id}, req.body).then(result => {
+      Expenses.find().then(result => {
+        res.send({ data: result });
+      });
+    });
+  } else res.status(422).send('Error! Params not correct');
+};
+
+module.exports.deleteExpenses = (req, res, next) => {
+  if (req.query._id) {
+    Expenses.deleteOne({_id: req.query._id}).then(result => {
+      Expenses.find().then(result => {
+        res.send({ data: result });
+      });
+    });
+  } else res.status(422).send('Error! Params not correct');
+};
