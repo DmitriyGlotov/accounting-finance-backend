@@ -18,7 +18,7 @@ module.exports.createNewExpenses = (req, res, next) => {
 };
 
 module.exports.changeExpensesInfo = (req, res, next) => {
-  if (req.body._id && req.body.textNameShop && req.body.textCost && req.body.Data) {
+  if (req.body._id && (req.body.textNameShop || req.body.textCost || req.body.Data)) {
     Expenses.updateOne({_id: req.body._id}, req.body).then(result => {
       Expenses.find().then(result => {
         res.send({ data: result });
