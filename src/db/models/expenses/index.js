@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const expensesSheme = new Schema({
-  text: String,
-  isCheck: Boolean,
+  NameShop: String,
+  textCost: Number,
+  Data: String,
 });
 
 module.exports = Expenses = mongoose.model('expenses', expensesSheme);

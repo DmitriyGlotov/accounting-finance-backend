@@ -7,7 +7,7 @@ module.exports.getAllExpenses = (req, res, next) => {
 };
 
 module.exports.createNewExpenses = (req, res, next) => {
-  if (req.body.hasOwnProperty('text') && req.body.hasOwnProperty('isCheck')){
+  if (req.body.hasOwnProperty('NameShop') && req.body.hasOwnProperty('textCost')){
     const expenses = new Expenses(req.body);
     expenses.save().then(result => {
       Expenses.find().then(result => {
