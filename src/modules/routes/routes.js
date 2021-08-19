@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getAllTasks,
-  createNewTasks,
-} = require ('../controllers/task-controller');
+  getAllExpenses,
+  createNewExpenses,
+} = require ('../controllers/expenses-controller');
 
-router.get('/allTasks', getAllTasks);
-router.post('/createTask', createNewTasks);
+router.get('/allExpenses', getAllExpenses);
+router.post('/createExpenses', createNewExpenses);
 
 module.exports = router;

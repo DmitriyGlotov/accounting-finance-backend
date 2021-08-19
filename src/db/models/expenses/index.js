@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const taskSheme = new Schema({
+const expensesSheme = new Schema({
   text: String,
   isCheck: Boolean,
 });
 
-module.exports = Task = mongoose.model('tasks', taskSheme);
+module.exports = Expenses = mongoose.model('expenses', expensesSheme);
