@@ -7,7 +7,7 @@ module.exports.getAllExpenses = (req, res, next) => {
 };
 
 module.exports.createNewExpenses = (req, res, next) => {
-  if (req.body.hasOwnProperty('NameShop') && req.body.hasOwnProperty('textCost') && req.body.hasOwnProperty('Data')){
+  if (req.body.hasOwnProperty('textNameShop') && req.body.hasOwnProperty('textCost') && req.body.hasOwnProperty('Data')){
     const expenses = new Expenses(req.body);
     expenses.save().then(result => {
       Expenses.find().then(result => {
@@ -18,7 +18,7 @@ module.exports.createNewExpenses = (req, res, next) => {
 };
 
 module.exports.changeExpensesInfo = (req, res, next) => {
-  if (req.body._id) {
+  if (req.body._id && req.body.textNameShop && req.body.textCost && req.body.Data) {
     Expenses.updateOne({_id: req.body._id}, req.body).then(result => {
       Expenses.find().then(result => {
         res.send({ data: result });
